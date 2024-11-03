@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "module": "es2015",  // Ensure compatibility with Cypress
+      "target": "es6",      // Ensure compatibility with es2015 modules
+      "moduleResolution": "node"
+    },
+    "include": ["cypress/**/*.ts", "cypress.config.ts"] // Update paths as needed
+  }
+  
