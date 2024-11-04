@@ -1,6 +1,6 @@
 // NavBar.tsx
 import React, { useState } from 'react';
-import { Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Divider, Box, Toolbar, ButtonBase } from '@mui/material';
+import { Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Divider, Box, Toolbar, Button } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import PhoneIcon from '@mui/icons-material/Phone';
 import InfoIcon from '@mui/icons-material/Info';
@@ -33,32 +33,50 @@ const NavBar: React.FC = () => {
             overflowX: 'hidden',
           },
         }}
+        aria-label="Main navigation drawer"
       >
         <Toolbar>
-          <IconButton onClick={toggleDrawer}>
+          <IconButton
+            onClick={toggleDrawer}
+            aria-label={open ? 'Close main menu' : 'Open main menu'}
+            aria-expanded={open}
+            aria-controls="main-menu"
+          >
             <MenuIcon />
           </IconButton>
         </Toolbar>
         <Divider />
-        <List>
-        <ButtonBase component={NextLink} href="/" sx={{ width: '100%' }} key="Home">
-          <ListItem>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            {open && <ListItemText primary="Home" />}
-          </ListItem>
-          </ButtonBase>
-          <ButtonBase component={NextLink} href="/about" sx={{ width: '100%' }} key="About">
-          <ListItem>
-            <ListItemIcon>
-              <InfoIcon />
-            </ListItemIcon>
-            {open && <ListItemText primary="About" />}
-          </ListItem>
-          </ButtonBase>
-         {/* Contact with Submenu */}
-         <SubMenu
+        <List id="main-menu">
+          <Button
+            component={NextLink}
+            href="/"
+            sx={{ width: '100%' }}
+            key="Home"
+            aria-label="Navigate to Home"
+          >
+            <ListItem>
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              {open && <ListItemText primary="Home" />}
+            </ListItem>
+          </Button>
+          <Button
+            component={NextLink}
+            href="/about"
+            sx={{ width: '100%' }}
+            key="About"
+            aria-label="Navigate to About"
+          >
+            <ListItem>
+              <ListItemIcon>
+                <InfoIcon />
+              </ListItemIcon>
+              {open && <ListItemText primary="About" />}
+            </ListItem>
+          </Button>
+          {/* Contact with Submenu */}
+          <SubMenu
             label="Contact"
             icon={<ContactMailIcon />}
             drawerOpen={open}
@@ -66,6 +84,7 @@ const NavBar: React.FC = () => {
               { label: 'Phone', icon: <PhoneIcon />, href: '/contact/phone' },
               { label: 'Email', icon: <EmailIcon />, href: '/contact/email' },
             ]}
+            ariaLabel="Open Contact submenu"
           />
         </List>
       </Drawer>
@@ -78,4 +97,3 @@ const NavBar: React.FC = () => {
 };
 
 export default NavBar;
-
