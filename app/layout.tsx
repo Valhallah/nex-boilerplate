@@ -7,7 +7,7 @@ import { CacheProvider } from '@emotion/react';
 import createEmotionCache from '../app/createEmotionCache';
 import localFont from "next/font/local";
 import "./styles/globals.css";
-import Navbar from "./components/NavBar"; 
+import Navbar from "./components/Nav/NavBar"; 
 
 // Font definitions
 const geistSans = localFont({
