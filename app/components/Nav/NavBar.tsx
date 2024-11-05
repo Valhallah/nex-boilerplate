@@ -9,6 +9,7 @@ import ContactMailIcon from '@mui/icons-material/ContactMail';
 import MenuIcon from '@mui/icons-material/Menu';
 import NextLink from 'next/link';
 import SubMenu from './SubMenu';
+import styles from './NavBar.module.scss';
 
 const drawerWidth = 240;
 
@@ -19,8 +20,9 @@ const NavBar: React.FC = () => {
     setOpen(!open);
   };
 
+
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box id="navbar-container">
       <Drawer
         variant="permanent"
         open={open}
@@ -37,6 +39,7 @@ const NavBar: React.FC = () => {
       >
         <Toolbar>
           <IconButton
+            className={`${styles.iconButton} ${open ? styles.expanded : styles.collapsed}`}
             onClick={toggleDrawer}
             aria-label={open ? 'Close main menu' : 'Open main menu'}
             aria-expanded={open}
@@ -46,25 +49,27 @@ const NavBar: React.FC = () => {
           </IconButton>
         </Toolbar>
         <Divider />
-        <List id="main-menu">
+        <List id="mainMenu">
           <Button
+            id="home"
             component={NextLink}
             href="/"
-            sx={{ width: '100%' }}
+            className={styles.button}
             key="Home"
             aria-label="Navigate to Home"
           >
             <ListItem>
               <ListItemIcon>
-                <HomeIcon />
+                <HomeIcon/>
               </ListItemIcon>
               {open && <ListItemText primary="Home" />}
             </ListItem>
           </Button>
           <Button
+            id="about"
+            className={styles.button}
             component={NextLink}
             href="/about"
-            sx={{ width: '100%' }}
             key="About"
             aria-label="Navigate to About"
           >

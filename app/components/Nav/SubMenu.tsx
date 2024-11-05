@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { List, ListItem, ListItemIcon, ListItemText, Box, Button, Popover } from '@mui/material';
 import NextLink from 'next/link';
+import styles from './NavBar.module.scss';
 
 interface SubMenuItem {
   label: string;
@@ -44,10 +45,11 @@ const SubMenu: React.FC<SubMenuProps> = ({ label, icon, items, drawerOpen, ariaL
   return (
     <>
       <Button
+        id="contact"
         onClick={handleOpen}
         onKeyDown={handleKeyDown}
         ref={buttonRef}
-        sx={{ width: '100%' }}
+        className={styles.button}
         aria-haspopup="true"
         aria-expanded={open}
         aria-controls="submenu-popover"

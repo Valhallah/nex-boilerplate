@@ -1,0 +1,52 @@
+// NavBar.module.scss
+
+$drawer-width: 240px;
+$collapsed-width: 60px;
+
+.navbarContainer {
+  display: flex;
+  align-items: center;
+}
+
+.drawer {
+  width: $collapsed-width;
+  flex-shrink: 0;
+
+  &.open {
+    width: $drawer-width;
+    transition: width 0.3s;
+  }
+
+  & .MuiDrawer-paper {
+    width: $collapsed-width;
+    transition: width 0.3s;
+    overflow-x: hidden;
+
+    &.open {
+      width: $drawer-width;
+    }
+  }
+}
+
+.iconButton {
+  position: absolute;
+  transition: left 0.3s ease, transform 0.3s ease;
+
+  &.collapsed {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.expanded {
+    left: 200px; 
+    transform: translateX(0);
+  }
+}
+
+
+ .button {
+    text-transform: capitalize;
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
