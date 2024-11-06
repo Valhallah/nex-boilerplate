@@ -1,6 +1,8 @@
 // components/SubMenu.tsx
 import React, { useState, useRef } from 'react';
 import { List, ListItem, ListItemIcon, ListItemText, Box, Button, Popover } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import NextLink from 'next/link';
 import styles from './NavBar.module.scss';
 
@@ -54,6 +56,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ label, icon, items, drawerOpen, ariaL
         aria-expanded={open}
         aria-controls="submenu-popover"
         aria-label={ariaLabel}
+        endIcon={drawerOpen ? (open ? <ExpandLessIcon /> : <ExpandMoreIcon />) : null}
       >
         <ListItem className={`${styles.listItem} ${!open ? styles.collapsed : ''}`}>
           <ListItemIcon className={`${styles.listItemIcon} ${open ? styles.expanded : ''}`}>{icon}</ListItemIcon>
@@ -79,7 +82,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ label, icon, items, drawerOpen, ariaL
         disableEnforceFocus
       >
         <Box
-          sx={{ minWidth: 160, maxWidth: 220 }}
+          sx={{ minWidth: 160, maxWidth: 220, padding: 1 }}
           role="menu"
           aria-label={`${label} submenu`}
         >
@@ -88,7 +91,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ label, icon, items, drawerOpen, ariaL
               <Button
                 component={NextLink}
                 href={item.href}
-                sx={{ width: '100%' }}
+                sx={{ width: '100%', textAlign: 'left', justifyContent: 'flex-start' }}
                 key={item.label}
                 role="menuitem"
                 aria-label={`Navigate to ${item.label}`}

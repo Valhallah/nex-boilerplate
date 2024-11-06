@@ -69,7 +69,7 @@ $collapsed-width: 40px;
 }
 
 .listItemIcon {
-  min-width: 40px;
+  min-width: 40px !important;
   justify-content: center;
   transition: margin-left 0.1s ease;
   svg {
