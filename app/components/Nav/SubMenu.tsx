@@ -55,8 +55,8 @@ const SubMenu: React.FC<SubMenuProps> = ({ label, icon, items, drawerOpen, ariaL
         aria-controls="submenu-popover"
         aria-label={ariaLabel}
       >
-        <ListItem>
-          <ListItemIcon>{icon}</ListItemIcon>
+        <ListItem className={`${styles.listItem} ${!open ? styles.collapsed : ''}`}>
+          <ListItemIcon className={`${styles.listItemIcon} ${open ? styles.expanded : ''}`}>{icon}</ListItemIcon>
           {drawerOpen && <ListItemText primary={label} />}
         </ListItem>
       </Button>
@@ -79,7 +79,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ label, icon, items, drawerOpen, ariaL
         disableEnforceFocus
       >
         <Box
-          sx={{ minWidth: 160, maxWidth: 220, padding: 1 }}
+          sx={{ minWidth: 160, maxWidth: 220 }}
           role="menu"
           aria-label={`${label} submenu`}
         >

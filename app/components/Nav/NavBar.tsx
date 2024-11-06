@@ -20,6 +20,9 @@ const NavBar: React.FC = () => {
     setOpen(!open);
   };
 
+  const drawerWidth = 240;
+const collapsedWidth = 60;
+
 
   return (
     <Box id="navbar-container">
@@ -27,12 +30,13 @@ const NavBar: React.FC = () => {
         variant="permanent"
         open={open}
         sx={{
-          width: open ? drawerWidth : 60,
+          width: open ? drawerWidth : collapsedWidth,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
-            width: open ? drawerWidth : 60,
+            width: open ? drawerWidth : collapsedWidth,
             transition: 'width 0.3s',
             overflowX: 'hidden',
+            alignItems: open ? 'flex-start' : 'center',
           },
         }}
         aria-label="Main navigation drawer"
@@ -58,8 +62,8 @@ const NavBar: React.FC = () => {
             key="Home"
             aria-label="Navigate to Home"
           >
-            <ListItem>
-              <ListItemIcon>
+            <ListItem className={`${styles.listItem} ${!open ? styles.collapsed : ''}`}>
+              <ListItemIcon className={`${styles.listItemIcon} ${open ? styles.expanded : ''}`}>
                 <HomeIcon/>
               </ListItemIcon>
               {open && <ListItemText primary="Home" />}
@@ -73,8 +77,8 @@ const NavBar: React.FC = () => {
             key="About"
             aria-label="Navigate to About"
           >
-            <ListItem>
-              <ListItemIcon>
+            <ListItem className={`${styles.listItem} ${!open ? styles.collapsed : ''}`}>
+              <ListItemIcon className={`${styles.listItemIcon} ${open ? styles.expanded : ''}`}>
                 <InfoIcon />
               </ListItemIcon>
               {open && <ListItemText primary="About" />}

@@ -1,7 +1,7 @@
 // NavBar.module.scss
 
 $drawer-width: 240px;
-$collapsed-width: 60px;
+$collapsed-width: 40px;
 
 .navbarContainer {
   display: flex;
@@ -9,44 +9,75 @@ $collapsed-width: 60px;
 }
 
 .drawer {
-  width: $collapsed-width;
   flex-shrink: 0;
 
   &.open {
     width: $drawer-width;
-    transition: width 0.3s;
+    transition: width 0.1s;
+  }
+
+  &.closed {
+    width: $collapsed-width;
+    transition: width 0.1s;
   }
 
   & .MuiDrawer-paper {
     width: $collapsed-width;
-    transition: width 0.3s;
+    transition: width 0.1s;
     overflow-x: hidden;
 
     &.open {
       width: $drawer-width;
+    }
+
+    &.closed {
+      width: $collapsed-width;
     }
   }
 }
 
 .iconButton {
   position: absolute;
-  transition: left 0.3s ease, transform 0.3s ease;
+  transition: left 0.1s ease, transform 0.1s ease;
 
   &.collapsed {
     left: 50%;
     transform: translateX(-50%);
+    transition: left 0.1s ease, transform 0.1s ease;
   }
 
   &.expanded {
-    left: 200px; 
+    left: 200px;
     transform: translateX(0);
+    transition: left 0.1s ease, transform 0.1s ease;
   }
 }
 
+.button {
+  text-transform: capitalize;
+  width: 100%;
+  transition: transform 0.1s ease;
+}
 
- .button {
-    text-transform: capitalize;
-    width: 100%;
-    transition: transform 0.3s ease;
+.listItem {
+
+  &.collapsed {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    justify-content: center;
+  }
+}
+
+.listItemIcon {
+  min-width: 40px;
+  justify-content: center;
+  transition: margin-left 0.1s ease;
+  svg {
+    position: relative;
+    right: 2px;
   }
 
+  &.expanded {
+    min-width: auto;
+  }
+}
