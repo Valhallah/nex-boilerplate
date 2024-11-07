@@ -90,8 +90,8 @@ const collapsedWidth = 60;
             icon={<ContactMailIcon />}
             drawerOpen={open}
             items={[
-              { label: 'Phone', icon: <PhoneIcon />, href: '/contact/phone' },
-              { label: 'Email', icon: <EmailIcon />, href: '/contact/email' },
+              { label: 'Phone', icon: <PhoneIcon />, href: '/phone' },
+              { label: 'Email', icon: <EmailIcon />, href: '/email' },
             ]}
             ariaLabel="Open Contact submenu"
           />
