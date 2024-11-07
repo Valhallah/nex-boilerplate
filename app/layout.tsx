@@ -1,6 +1,5 @@
 // app/layout.tsx
 "use client";
-import { metadata } from "./metadata";
 import { AppProvider } from './context/AppContext'; 
 import { CssBaseline } from '@mui/material';
 import { CacheProvider } from '@emotion/react';
@@ -22,6 +21,7 @@ const geistMono = localFont({
 });
 
 
+
 const clientSideEmotionCache = createEmotionCache();  // Initialize Emotion cache
 
 export default function RootLayout({
@@ -31,6 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+       <head>
+
+        <title>Next Boiler Plate</title>
+        <meta name="description" content="Some bones for Next App" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <CacheProvider value={clientSideEmotionCache}>
           <AppProvider>
