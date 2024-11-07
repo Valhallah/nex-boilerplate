@@ -91,7 +91,8 @@ const SubMenu: React.FC<SubMenuProps> = ({ label, icon, items, drawerOpen, ariaL
               <Button
                 component={NextLink}
                 href={item.href}
-                sx={{ width: '100%', textAlign: 'left', justifyContent: 'flex-start' }}
+                className={styles.popoverButton}
+                fullWidth
                 key={item.label}
                 role="menuitem"
                 aria-label={`Navigate to ${item.label}`}

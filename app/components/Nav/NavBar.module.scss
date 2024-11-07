@@ -59,10 +59,15 @@ $collapsed-width: 40px;
   transition: transform 0.1s ease;
 }
 
+.popoverButton {
+  text-align: left;
+  justify-content: flex-start;
+  text-transform: capitalize;
+}
+
 .listItem {
 
   &.collapsed {
-    padding-left: 0.5rem;
     padding-right: 0.5rem;
     justify-content: center;
   }
